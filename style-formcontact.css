@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    background-color: rgb(32, 145, 221);
+    overflow: hidden;
+    color: white;
+    font-size: 200%;
+}
+header span{
+    font-size: 100%;
+    display: block;
+    text-align: center;
+    padding: 2.5rem;
+}
+input[type='submit']{
+    padding: 10px;
+    border: none;
+    background-color: rgb(32, 145, 221);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.form-contact{
+    background-color: #fff;
+    width: 400px;
+    position:static;
+    margin: auto;
+    
+    box-shadow: 7px 13px 37px rgba(0,0,0,0.8);
+  }
+  .contact{
+    padding: .8rem;
+    overflow: hidden;
+    color:rgba(0,0,0,0.8);
+  }
+  .contact label, .contact input, .contact textarea{
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .contact label {
+    font-weight: 700;
+  }
+  .contact input:not([type='submit']), .contact textarea{
+    border: none;
+    border-bottom: 2px solid blue;
+    margin-bottom: 10px;
+    outline: none;
+    color: gray;
+  }
