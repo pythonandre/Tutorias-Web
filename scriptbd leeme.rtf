@@ -1,0 +1,41 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\margb1417\margt1417\vieww12540\viewh14500\viewkind1
+\deftab720
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\ri0\partightenfactor0
+
+\f0\b\fs24 \cf0 SCRIPT BASE DE DATOS:
+\f1\b0 \
+Este script se debe agregar luego de haber creado la base de datos en phpmyadmin llamada losktutos.\
+\
+use losktutos;\
+create table tutor (tutor_id int primary key AUTO_INCREMENT not null, tutor_nombre varchar(125), tutor_password varchar(125), tutor_email varchar(125), tutor_certificado longblob, tutor_grado varchar(125));\
+create table curso (curso_id int primary key AUTO_INCREMENT not null, curso_nombre varchar(125), curso_descripcion varchar(300), curso_thumb longblob, curso_precio varchar(125), curso_es_aprobado bool, curso_id_tutor int, foreign key (curso_id_tutor) references tutor(tutor_id));\
+create table clase (clase_id int primary key auto_increment not null, clase_nombre varchar(125), clase_descripcion varchar(300), clase_video varchar(125), clase_curso_id int, foreign key (clase_curso_id) references curso(curso_id));\
+create table alumno (alumno_id int primary key auto_increment not null, alumno_nombre varchar(125), alumno_password varchar(125), alumno_grado varchar(125),  alumno_email varchar(125), alumno_certificado longblob);\
+create table historial_compra (alumno_has_curso_id int AUTO_INCREMENT not null PRIMARY KEY, alumno_id int not null, curso_id int not null, fecha_de_compra date, foreign key (alumno_id) references alumno(alumno_id), foreign key (curso_id) references curso(curso_id));\
+create table administrador (id_administrador int primary key auto_increment not null, nombre_administrador varchar(75), password_administrador varchar(125), correo_administrador varchar(75));\
+create table contacto (id_contacto int primary key auto_increment not null, nombre_contacto varchar(75), apellido_contacto varchar(75), correo_contacto varchar(75), telefono_contacto varchar(12), mensaje_contacto varchar(200));\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardeftab720\ri0\partightenfactor0
+
+\fs22 \cf0 \
+
+\f0\b CREACI\'d3N CUENTA ADMINISTRADOR:
+\f1\b0 \
+Esta cuenta debe ser creada manualmente desde phpmyadmin como por ejemplo con el siguiente script:\
+\
+use losktutos;\
+Insert into Administrador (id_administrador, nombre_administrador, password_administrador, correo_administrador) values (1, 'admin', 'admin', 'admin@admin.cl');\
+\
+
+\f0\b COSAS A TENER EN CUENTA
+\f1\b0 \
+Con esta cuenta se puede logear como admin, las cuentas de tutor y alumno se pueden crear en la misma p\'e1gina, al igual que los cursos y sus clases.\
+\
+Los siguientes links a YouTube se pueden agregar como clases en la p\'e1gina, son las tutor\'edas que nosotros hicimos.\
+\
+https://www.youtube.com/watch?v=g0JlFpfoczI\
+https://www.youtube.com/watch?v=tkSoHBpCxgc\
+https://www.youtube.com/watch?v=oPiuIMUiiHg}
